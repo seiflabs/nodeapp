@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nodeapp
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: nodeapp
+  template:
+    metadata:
+      labels:
+        app: nodeapp
+    spec:
+      containers:
+        - name: node-front
+          image: seiflabs/nodeapp:latest
+
+          resources:
+            requests:
+              memory: "124Mi"
+              cpu: "1000m"
+            limits:
+              memory: "150Mi"
+              cpu: "1024m"
+          ports:
+            - containerPort: 8081
