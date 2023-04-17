@@ -39,6 +39,7 @@ pipeline {
                kubectl delete -f service.yml
                kubectl apply -f deploy.yml
                kubectl apply -f service.yml
+               sleep 60
                kubectl get svc
                '''
             }
