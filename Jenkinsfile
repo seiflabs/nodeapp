@@ -35,6 +35,8 @@ pipeline {
                sh '''
                ## Connect to aws cluster
                aws eks --region eu-west-3 update-kubeconfig --name k8maghraoui-cluster
+               kubectl delete -f deploy.yml
+               kubectl delete -f service.yml
                kubectl apply -f deploy.yml
                kubectl apply -f service.yml
                '''
