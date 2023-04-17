@@ -6,5 +6,5 @@ WORKDIR /usr/src/app
 # Install app dependencies
 COPY . .
 
-EXPOSE 8081
+EXPOSE 8082
 CMD [ "node", "main.js" ]
