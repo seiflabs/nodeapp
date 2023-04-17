@@ -32,7 +32,9 @@ pipeline {
         }
         stage('Deploy') {
             steps {
-                echo 'Deploying....'
+               sh '''
+               aws eks --region eu-west-3 update-kubeconfig --name k8maghraoui-cluster
+               '''
             }
         }
     }
