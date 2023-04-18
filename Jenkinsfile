@@ -33,7 +33,11 @@ pipeline {
         stage('Deploy') {
             steps {
                sh '''
-
+               aws eks --region eu-west-3 update-kubeconfig --name k8maghraoui-cluster
+               kubectl apply -f deploy.yml
+               kubectl apply -f service.yml
+               
+               kubectl get svc
                '''
             }
         }
