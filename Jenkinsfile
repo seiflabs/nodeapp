@@ -34,6 +34,8 @@ pipeline {
             steps {
                sh '''
                aws eks --region eu-west-3 update-kubeconfig --name k8maghraoui-cluster
+               
+               curl -LO https://storage.googleapis.com/kubernetes-release/release/v1.23.6/bin/linux/amd64/kubectl
                kubectl apply -f deploy.yml
                kubectl apply -f service.yml
                
